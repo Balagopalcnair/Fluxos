@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLUX-OS</title>
+    <link rel="stylesheet" href="fluxos.css">
+</head>
+<body>
+    <!-- Initial Power On Button -->
+    <button class="power" id="power">Power On PC!</button>
+     
+    <!-- Boot Sequence Elements (Initially Hidden) -->
+    <p class="boot">Booting FLUX-OS....</p>
+    <p class="welcome">Welcome To FLUX-OS</p>
+
+    <!-- Login Screen (Initially Hidden) -->
+    <form class="login-screen" id="login-screen">
+        <div class="login-avatar">
+            <img src="userimage.png" alt="User Avatar">
+        </div>
+        <h2 class="login-user">Guest</h2>
+        <p class="login-prompt">Enter password to unlock</p>
+        <div class="password-container">
+            <input type="password" placeholder="Password" id="password-box" class="password-box" required>
+            <button type="submit" class="login-btn" id="login-btn">→</button>
+        </div>
+    </form>
+
+    <!-- Main Desktop Environment (Initially Hidden) -->
+    <main class="desktop" id="desktop">
+        <div class="desktop-icons">
+            <button class="desktop-icon" id="this-pc-icon">
+                <p>🖥️</p>
+                <span>This PC</span>
+            </button>
+            <button class="desktop-icon" id="recycle-bin-icon">
+              <p>🗑️</p>
+              <span>Recycle Bin</span>
+            </button>
+            <button class="desktop-icon" id="terminal-icon">
+              <p>⌨️</p>
+              <span>Terminal</span>
+            </button>
+            <button class="desktop-icon" id="games-icon">
+              <p>🎮</p>
+              <span>Games</span>
+            </button>
+            <button class="desktop-icon" id="settings-icon">
+              <p>⚙️</p>
+              <span>Settings</span>
+            </button>
+            <button class="desktop-icon" id="devspace-icon">
+              <p>💻</p>
+              <span>DevSpace</span>
+            </button>
+            <button class="desktop-icon" id="calculator-icon">
+              <p>🧮</p>
+              <span>Calculator</span>
+            </button>
+            <button class="desktop-icon" id="browser-icon">
+              <p>🌐</p>
+              <span>Browser</span>
+            </button>
+        </div>
+
+        <!-- Application Windows (Initially Hidden) -->
+        <div class="window" id="terminal-window">
+            <div class="title-bar">
+                <span class="title">Terminal</span>
+                <div class="window-controls">
+                    <button class="minimize-btn">-</button>
+                    <button class="maximize-btn">□</button>
+                    <button class="close-btn">×</button>
+                </div>
+            </div>
+            <div class="window-body" id="terminal-body">
+                <pre id="terminal-output">Flux-OS [Version 1.0.0]
+(c) 2024 Flux Corporation. All rights reserved.
+</pre>
+                <div class="terminal-prompt-line">
+                    <span>C:\Users\Guest></span>
+                    <input type="text" id="terminal-input" class="terminal-input" autofocus>
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="browser-window">
+            <div class="title-bar">
+                <span class="title">Flux Browser</span>
+                <div class="window-controls">
+                    <button class="minimize-btn">-</button>
+                    <button class="maximize-btn">□</button>
+                    <button class="close-btn">×</button>
+                </div>
+            </div>
+            <div class="nav-bar">
+                <form class="nav-form">
+                    <input type="text" class="address-bar" placeholder="Search or enter address">
+                    <button type="submit" class="go-btn">Go</button>
+                </form>
+            </div>
+            <div class="window-body" id="browser-body">
+                <!-- Web content will be loaded here -->
+                <iframe srcdoc="<style>body{font-family: sans-serif; background-color: #fff; color: #333; text-align: center; padding-top: 50px;} h1{font-weight: 300;}</style><h1>Welcome to Flux Browser</h1><p>Search or enter a URL above.</p>" class="browser-iframe" title="Browser Content"></iframe>
+            </div>
+        </div>
+
+        <div class="window" id="this-pc-window">
+            <div class="title-bar">
+                <span class="title">This PC</span>
+                <div class="window-controls">
+                    <button class="minimize-btn">-</button>
+                    <button class="maximize-btn">□</button>
+                    <button class="close-btn">×</button>
+                </div>
+            </div>
+            <div class="window-body" id="this-pc-body">
+                <h3>Wallpapers</h3>
+                <div class="wallpaper-selection">
+                    <!-- Wallpaper thumbnails will be added here by JS -->
+                </div>
+                <hr class="section-divider">
+                <h3>C:\ Drive</h3>
+                <ul class="file-explorer">
+                    <li class="file-locked">📁 Program Files</li>
+                    <li class="file-locked">📁 Users</li>
+                    <li>📄 config.sys</li>
+                    <li class="file-locked">🔒 kernel32.dll (Locked)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="window" id="specs-window">
+            <div class="title-bar">
+                <span class="title">System Properties</span>
+                <div class="window-controls">
+                    <button class="minimize-btn">-</button>
+                    <button class="maximize-btn">□</button>
+                    <button class="close-btn">×</button>
+                </div>
+            </div>
+            <div class="window-body" id="specs-body">
+                <h3>Flux-OS Specifications</h3>
+                <ul class="specs-list">
+                    <li><strong>OS:</strong> Flux-OS v1.1.0 "Modern"</li>
+                    <li><strong>CPU:</strong> FluxCore i9 @ 3.0 GHz (Simulated)</li>
+                    <li><strong>RAM:</strong> 16.0 GB (Simulated)</li>
+                    <li><strong>GPU:</strong> FluxGFX 9000 (Simulated)</li>
+                    <li><strong>User:</strong> Guest</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="window" id="games-window">
+            <div class="title-bar">
+                <span class="title">Games</span>
+                <div class="window-controls">
+                    <button class="minimize-btn">-</button>
+                    <button class="maximize-btn">□</button>
+                    <button class="close-btn">×</button>
+                </div>
+            </div>
+            <div class="window-body" id="games-body">
+                <div class="games-grid">
+                    <div class="game-icon">
+                        <p>🚀</p>
+                        <span>Starship Flux</span>
+                    </div>
+                    <div class="game-icon">
+                        <p>💎</p>
+                        <span>Gem Miner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="settings-window">
+            <div class="title-bar">
+                <span class="title">Settings</span>
+                <div class="window-controls">
+                    <button class="minimize-btn">-</button>
+                    <button class="maximize-btn">□</button>
+                    <button class="close-btn">×</button>
+                </div>
+            </div>
+            <div class="window-body" id="settings-body">
+                <h3>Theme Accent Color</h3>
+                <div class="settings-grid" id="theme-color-grid">
+                    <!-- Color swatches will be added here by JS -->
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="devspace-window">
+            <div class="title-bar">
+                <span class="title">DevSpace</span>
+                <div class="window-controls">
+                    <button class="minimize-btn">-</button>
+                    <button class="maximize-btn">□</button>
+                    <button class="close-btn">×</button>
+                </div>
+            </div>
+            <div class="window-body" id="devspace-body">
+                <textarea class="code-editor" spellcheck="false">
+# Welcome to DevSpace!
+def hello_flux():
+    print("Hello, Flux-OS!")
+
+hello_flux()</textarea>
+            </div>
+        </div>
+
+        <div class="window" id="calculator-window">
+            <div class="title-bar">
+                <span class="title">Calculator</span>
+                <div class="window-controls">
+                    <button class="minimize-btn">-</button>
+                    <button class="maximize-btn">□</button>
+                    <button class="close-btn">×</button>
+                </div>
+            </div>
+            <div class="window-body" id="calculator-body">
+                <div class="calc-display">0</div>
+                <div class="calc-buttons">
+                    <button class="calc-btn function" data-action="clear">AC</button>
+                    <button class="calc-btn function" data-action="toggle-sign">+/-</button>
+                    <button class="calc-btn function" data-action="percent">%</button>
+                    <button class="calc-btn operator" data-action="divide">÷</button>
+                    <button class="calc-btn number">7</button>
+                    <button class="calc-btn number">8</button>
+                    <button class="calc-btn number">9</button>
+                    <button class="calc-btn operator" data-action="multiply">×</button>
+                    <button class="calc-btn number">4</button>
+                    <button class="calc-btn number">5</button>
+                    <button class="calc-btn number">6</button>
+                    <button class="calc-btn operator" data-action="subtract">-</button>
+                    <button class="calc-btn number">1</button>
+                    <button class="calc-btn number">2</button>
+                    <button class="calc-btn number">3</button>
+                    <button class="calc-btn operator" data-action="add">+</button>
+                    <button class="calc-btn number zero">0</button>
+                    <button class="calc-btn number" data-action="decimal">.</button>
+                    <button class="calc-btn operator" data-action="equals">=</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Start Menu (Initially Hidden) -->
+    <div class="start-menu" id="start-menu">
+        <input type="text" class="start-menu-search" placeholder="Flux Search...">
+        <ul class="start-menu-apps">
+            <li class="start-menu-item" id="start-menu-terminal">
+                <p>⌨️</p>
+                <span>Terminal</span>
+            </li>
+            <li class="start-menu-item" id="start-menu-browser">
+                <p>🌐</p>
+                <span>Browser</span>
+            </li>
+            <li class="start-menu-item" id="start-menu-settings">
+                <p>⚙️</p>
+                <span>Settings</span>
+            </li>
+            <li class="start-menu-item" id="start-menu-devspace">
+                <p>💻</p>
+                <span>DevSpace</span>
+            </li>
+            <li class="start-menu-item" id="start-menu-calculator">
+                <p>🧮</p>
+                <span>Calculator</span>
+            </li>
+        </ul>
+        <div class="start-menu-footer">
+            <button id="shutdown-btn">🔌 Shut Down</button>
+        </div>
+    </div>
+
+    <!-- Right-click Context Menu (Initially Hidden) -->
+    <div class="context-menu" id="context-menu">
+        <ul>
+            <li>View</li>
+            <li>Sort by</li>
+            <hr>
+            <li id="context-properties">Properties</li>
+        </ul>
+    </div>
+
+    <!-- Taskbar (Initially Hidden) -->
+    <footer class="taskbar" id="taskbar">
+        <button class="start-button" id="start-button">🚀</button>
+        <div class="running-apps" id="running-apps"></div>
+        <div class="system-tray">
+            <span id="clock">10:00 PM</span>
+        </div>
+    </footer>
+
+    <script src="fluxos.js" defer></script>
+</body>
+</html>
