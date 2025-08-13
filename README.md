@@ -2,10 +2,10 @@
 
 Welcome to Flux-OS, a feature-rich operating system experience built entirely with web technologies. This project simulates a modern desktop environment right in your browser, complete with a boot sequence, login screen, draggable windows, a functional taskbar, and a suite of applications.
 
+
 <img width="1920" height="1080" alt="Screenshot_2025-07-20_19_18_55" src="https://github.com/user-attachments/assets/56ce9fdd-9801-4a02-b589-dba1d901ee08" />
 
 <img width="1920" height="1080" alt="Screenshot_2025-07-20_19_20_53" src="https://github.com/user-attachments/assets/219ba3e8-7df4-4231-9755-227c7f0d059f" />
-
 
 ## ✨ Features
 
